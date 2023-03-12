@@ -11,6 +11,8 @@ body {
     width: 100%;
     margin: 0 auto;
     background-color: #84caca;
+    color: #2B90E2;
+    transition: .3s linear
 }
 img, svg {
     max-width: 100%;
@@ -23,6 +25,9 @@ hr {
     border: none;
     outline: 0.052vw solid #2b90e2;
 }
+input {
+    display: none;
+}
 .wrapper {
     max-width: 65vw;
     margin: 0 auto;
@@ -30,8 +35,6 @@ hr {
 .title {
     padding: 3vw 0;
     font-size: 3rem;
-    color: #2B90E2;
-    text-align: center;
 }
 .content {
     font-size: 1.5rem;
@@ -43,17 +46,40 @@ hr {
 }
 .icons {
     margin-top: 2vw;
-    display: none;
 }
 .content__title {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 2vw;
-    padding-bottom: 1vw;
+    padding: 2vw 1vw 1vw;
 }
+.content__title .content__title-text {
+    transition: .3s linear;
+}
+/* .content__item:active > .content__title-text {
+    color: rgb(12, 160, 79);
+} */
+.content .content__title-text {
+    color: rgb(23, 146, 130)
+}
+.content input:checked ~ .content__title .content__title-text {
+    color: #2B90E2;
+    transform: .3s linear;
+}
+.content__item input:checked ~ .content__title img {
+    transform: rotate(180deg);
+    filter: invert(1);
+    opacity: 0.4;
+    transform: .3s linear;
+}
+.item__description,
+.content input:checked ~ .item__description {
+    display: block;
+    transform: .3s linear;
+}
+
+
 .item__description {
-    /* padding-top: 2vw; */
     text-align: center;
     overflow: hidden;
     display: none;
@@ -63,8 +89,4 @@ hr {
 }
 .item__description-picture {
     padding-top: 0.5vw;
-    /* height: 0; */
-}
-.item__description-picture:hover {
-    /* min-height: 50vw; */
 }
