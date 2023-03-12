@@ -39,6 +39,7 @@ input {
 .content {
     font-size: 1.5rem;
     font-weight: 600;
+    padding-bottom: 3vw;
 }
 .content__item {
     cursor: pointer;
@@ -56,9 +57,6 @@ input {
 .content__title .content__title-text {
     transition: .3s linear;
 }
-/* .content__item:active > .content__title-text {
-    color: rgb(12, 160, 79);
-} */
 .content .content__title-text {
     color: rgb(23, 146, 130)
 }
@@ -70,23 +68,64 @@ input {
     transform: rotate(180deg);
     filter: invert(1);
     opacity: 0.4;
-    transform: .3s linear;
+    transition: .3s linear;
+}
+.item__description {
+    transition: .8s linear;
 }
 .item__description,
 .content input:checked ~ .item__description {
     display: block;
-    transform: .3s linear;
+    transition: .3s linear;
 }
-
-
+.content input:checked ~ .item__description {
+    max-height: 100vh;
+    transform: scale(1);
+    opacity: 1;
+}
 .item__description {
     text-align: center;
     overflow: hidden;
-    display: none;
-}
-.item__description:hover {
-    display: block;
+    max-height: 0;
+    opacity: 0;
+    transition: .4s linear;
 }
 .item__description-picture {
     padding-top: 0.5vw;
+}
+.content input:checked ~ .content__title img {
+    opacity: 0;
+}
+.content__title img {
+    opacity: 0;
+}
+.content:hover .content__title:hover h2:hover,
+.content__item:hover, .item__description:hover {
+    color: #2B90E2;
+    transition: .2s linear;
+}
+.content__item:hover,
+.item__description img:hover,
+.content:hover .content__title h2 {
+    color: #2B90E2;
+    transition: .2s linear;
+}
+.content:hover .content__item:hover .item__description {
+    max-height: 100vh;
+    transform: scale(1);
+    opacity: 1;
+}
+.content:hover .content__item:hover > .item__description {
+    transform: scale(1);
+    opacity: 1;
+    transition: .85s linear;
+}
+.content:hover .content__item:hover .content__title img {
+    transform: rotate(180deg);
+    filter: invert(1);
+    opacity: 0.4;
+    transition: .45s linear;
+}
+.content:hover .content__title img {
+    opacity: 1;
 }
